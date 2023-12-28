@@ -28,7 +28,7 @@ function createTaskElement(taskText, completed = false) {
     // Adiciona ouvintes de eventos para a checkbox e o botão de edição
     checkbox.addEventListener('change', () => toggleTaskCompletion(li, label, taskText));
     editButton.addEventListener('click', () => enableEditMode(li, label, editInput));
-
+    
     return li;
 }
 
@@ -70,6 +70,7 @@ function createDeleteButton(li) {
     const deleteButton = document.createElement('button');
     deleteButton.className = 'delete-btn';
     deleteButton.innerText = 'Excluir';
+
     deleteButton.onclick = () => deleteTask(li);
     return deleteButton;
 }
@@ -121,9 +122,14 @@ function toggleTaskCompletion(li, label, taskText) {
 
 // Exclui uma tarefa da lista
 function deleteTask(li) {
-    const tasksList = document.getElementById('tasks');
-    tasksList.removeChild(li);
-    updateLocalStorage();
+    li.classList.add('animacaoExcluirTarefa');
+
+    // Agendando a remoção do elemento após o término da animação
+    li.addEventListener('animationend', () => {
+        const tasksList = document.getElementById('tasks');
+        tasksList.removeChild(li);
+        updateLocalStorage();
+    }, { once: true });
 }
 
 // Atualiza as tarefas no armazenamento local com o estado atual
@@ -140,11 +146,11 @@ function updateLocalStorage() {
 function enableEditMode(li, label, editInput) {
     const editButton = li.querySelector('.edit-btn');
     const saveButton = document.createElement('button');
-    saveButton.className = 'edit-btn save-btn';
+    saveButton.className = ' save-btn';
     saveButton.innerText = 'Salvar';
 
     const cancelButton = document.createElement('button');
-    cancelButton.className = 'edit-btn cancel-btn';
+    cancelButton.className = ' cancel-btn';
     cancelButton.innerText = 'Cancelar';
 
     // Substitui o botão de edição pelo botão de salvar e cancelar

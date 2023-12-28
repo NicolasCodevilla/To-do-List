@@ -27,8 +27,9 @@ li {
     border-radius: 3px;
     background-color: #f9f9f9;
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     align-items: center;
+    position: relative;
 }
 
 li input[type="checkbox"] {
@@ -39,7 +40,9 @@ li input[type="checkbox"] {
 .edit-input {
     flex-grow: 1;
     margin-right: 10px;
+    padding: 4px 0;
     display: none;
+    font-size: 15px;
 }
 
 .completed {
@@ -81,33 +84,76 @@ li input[type="checkbox"] {
 .modal button {
     cursor: pointer;
     padding: 10px;
-    border-radius: 3px;
+    border: none;
+    border-radius: 5px;
     background-color: #000000;
     color: #fff;
+    margin-right: 5px;
+}
+
+.edit-btn, .delete-btn, .save-btn, .cancel-btn {
+    position: absolute;
+    border: none;
+    padding: 5px 10px;
+    color: #ffffff;
+    border-radius: 5px;
+    transition: 1s ease-out;
+}
+
+.edit-btn {
+    right: 18%;
+}
+
+.edit-btn, .delete-btn {
+    background-color: #219ebc;
+}
+
+.edit-btn:hover, .delete-btn:hover{
+    background-color: #023e8a;
 }
 
 .save-btn {
     background-color: #13c828;
-    color: #ffffff;
-    margin-right: 5px;
+    z-index: 1;
+    right: 30%;   
+}
+
+.save-btn:hover {
+    background-color: #006400;
+}
+
+@keyframes animacaoExcluirTarefa {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(100%); }
+}
+
+.animacaoExcluirTarefa {
+    animation: animacaoExcluirTarefa 0.5s ease-out;
 }
 
 .delete-btn{
-    margin: 6px;
+    right: 4%;
 }
 
 .cancel-btn {
     background-color: #f44336;
-    color: #fff;
     display: none; /* Inicialmente, oculta o botão Cancelar */
+    right: 16%;
 }
+
+.cancel-btn:hover {
+    background-color: #9d0208;
+}
+
 .addtask-btn{
     background-color: #000000;
     padding: 2%;
     width: 100px;
     border: none;
     color: white;
+    border-radius: 5px;
 }
+
 .addtask-btn:hover{
     background-color: #121212;
     cursor: pointer;
