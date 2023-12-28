@@ -101,7 +101,7 @@ li input[type="checkbox"] {
 }
 
 .edit-btn {
-    right: 18%;
+    right: 15%;
 }
 
 .edit-btn, .delete-btn {
@@ -132,7 +132,7 @@ li input[type="checkbox"] {
 }
 
 .delete-btn{
-    right: 4%;
+    right: 3%;
 }
 
 .cancel-btn {
