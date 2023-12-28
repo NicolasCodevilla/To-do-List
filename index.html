@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Tasks</title>
+    <script src="script.js"></script>
+    
+</head>
+<body>
+
+    <div id="todoList">
+        <h2>Tasks</h2>
+        <ul id="tasks"></ul>
+        <button class="addtask-btn" onclick="openModal()">Add Task</button>
+        <div id="myModal" class="modal">
+            <input type="text" id="newTaskInput" placeholder="Digite a nova tarefa">
+            <button onclick="addTask()">Add Task</button>
+            <button onclick="closeModal()">Close</button>
+        </div>
+        <div class="overlay" onclick="closeModal()"></div>
+    </div>
+</body>
+</html>
